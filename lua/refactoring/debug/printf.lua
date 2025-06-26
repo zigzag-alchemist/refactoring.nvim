@@ -62,7 +62,7 @@ local function text_edit_insert_text(
 
     local _, _, current_statement = debug_utils.get_debug_points(refactor, opts)
 
-    assert(current_statement)
+    assert(current_statement, "There's no current statement")
     local start_row = current_statement:range()
     local statement_row = start_row
     local statement_line = api.nvim_buf_get_lines(
