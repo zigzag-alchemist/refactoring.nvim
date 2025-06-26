@@ -1,6 +1,5 @@
 local Query = require("refactoring.query")
 
-local api = vim.api
 local ts = vim.treesitter
 
 local M = {}
