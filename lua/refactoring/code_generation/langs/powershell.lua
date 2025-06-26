@@ -15,5 +15,8 @@ end
 powershell.print_var = function(opts)
     return opts.statement:format(opts.prefix, opts.var)
 end
+powershell.default_print_var_statement = function()
+    return { "Write-Host '%s' %s" }
+end
 
 return powershell
