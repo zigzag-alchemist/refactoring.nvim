@@ -1,17 +1,18 @@
 local TreeSitter = require("refactoring.treesitter.treesitter")
-local Typescript = require("refactoring.treesitter.langs.typescript")
-local TypescriptReact = require("refactoring.treesitter.langs.typescriptreact")
-local Cpp = require("refactoring.treesitter.langs.cpp")
-local C = require("refactoring.treesitter.langs.c")
+local typescript = require("refactoring.treesitter.langs.typescript")
+local typescriptReact = require("refactoring.treesitter.langs.typescriptreact")
+local cpp = require("refactoring.treesitter.langs.cpp")
+local c = require("refactoring.treesitter.langs.c")
 local vue = require("refactoring.treesitter.langs.vue")
 local go = require("refactoring.treesitter.langs.go")
-local Lua = require("refactoring.treesitter.langs.lua")
-local Python = require("refactoring.treesitter.langs.python")
-local JavaScript = require("refactoring.treesitter.langs.javascript")
+local lua = require("refactoring.treesitter.langs.lua")
+local python = require("refactoring.treesitter.langs.python")
+local javaScript = require("refactoring.treesitter.langs.javascript")
 local php = require("refactoring.treesitter.langs.php")
 local java = require("refactoring.treesitter.langs.java")
 local cs = require("refactoring.treesitter.langs.cs")
 local ruby = require("refactoring.treesitter.langs.ruby")
+local powershell = require("refactoring.treesitter.langs.powershell")
 
 local api = vim.api
 local ts = vim.treesitter
@@ -22,21 +23,22 @@ local ts = vim.treesitter
 ---@type table<string, refactor.TreeSitter|refactor.TreeSitterInstance|fun(bufnr: integer|nil): refactor.TreeSitter, string>
 local M = {
     TreeSitter = TreeSitter,
-    javascript = JavaScript, -- includes jsx because they use the same parser
-    typescript = Typescript,
-    tsx = TypescriptReact,
+    javascript = javaScript, -- includes jsx because they use the same parser
+    typescript = typescript,
+    tsx = typescriptReact,
     vue = vue,
-    python = Python,
+    python = python,
     go = go,
-    lua = Lua,
+    lua = lua,
     php = php,
     java = java,
     c_sharp = cs,
     ruby = ruby,
 
-    -- Why so many...
-    cpp = Cpp,
-    c = C,
+    cpp = cpp,
+    c = c,
+
+    powershell = powershell,
 }
 
 local DefaultSitter = {}

@@ -167,7 +167,7 @@ function M.ensure_code_gen(refactor, code_gen_operations)
             return false,
                 ("No %s function for code generator for %s"):format(
                     code_gen_operation,
-                    refactor.filetype
+                    refactor.lang
                 )
         end
     end

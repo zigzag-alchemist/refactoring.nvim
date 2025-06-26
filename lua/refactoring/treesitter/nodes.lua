@@ -130,7 +130,7 @@ function M.QueryNode(sexpr)
         local first = occurrences[1]
 
         if first then
-            local res = ts.get_node_text(first, api.nvim_get_current_buf())
+            local res = ts.get_node_text(first, bufnr)
             return res or ""
         end
 

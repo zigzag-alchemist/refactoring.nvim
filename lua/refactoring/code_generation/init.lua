@@ -12,6 +12,7 @@ local php = require("refactoring.code_generation.langs.php")
 local java = require("refactoring.code_generation.langs.java")
 local cs = require("refactoring.code_generation.langs.cs")
 local ruby = require("refactoring.code_generation.langs.ruby")
+local powershell = require("refactoring.code_generation.langs.powershell")
 
 ---@type table<refactor.ft, refactor.CodeGeneration>|{new_line: fun(): string}
 local M = {
@@ -30,6 +31,8 @@ local M = {
     c_sharp = cs,
     ruby = ruby,
     default = {},
+
+    powershell = powershell,
 
     -- TODO: Take this and make all code generation subclassed.
     -- This should just be a function of code generation.
