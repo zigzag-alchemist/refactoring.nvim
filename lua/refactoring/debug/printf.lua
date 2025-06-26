@@ -63,7 +63,10 @@ local function text_edit_insert_text(
     local _, _, current_statement = debug_utils.get_debug_points(refactor, opts)
 
     assert(current_statement, "There's no current statement")
-    local start_row = current_statement:range()
+    local start_row, start_col, end_row, end_col = current_statement:range()
+    if start_row == end_row and start_col == end_col then
+        start_row = start_row - 1
+    end
     local statement_row = start_row
     local statement_line = api.nvim_buf_get_lines(
         refactor.bufnr,

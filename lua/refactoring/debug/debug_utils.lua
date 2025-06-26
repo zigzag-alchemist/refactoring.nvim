@@ -44,7 +44,7 @@ function M.get_debug_points(refactor, opts)
     while current and not is_statement do
         is_statement = iter(statements):any(function(node)
             return node:equal(current)
-        end)
+        end) or current:parent() == nil
 
         if not is_statement then
             current = current:parent()
@@ -62,6 +62,11 @@ function M.get_debug_points(refactor, opts)
     local path_pos = cursor:clone()
     if current and not is_indent_scope then
         local start_row, start_col, end_row, end_col = current:range()
+        if start_row == end_row and start_col == end_col then
+            -- NOTE: current is the root node
+            start_row = refactor.cursor.row - 1
+            end_row = refactor.cursor.row - 1
+        end
         start_row, end_row = start_row + 1, end_row + 1
 
         insert_pos.row = opts.below and end_row or start_row
