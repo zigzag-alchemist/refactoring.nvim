@@ -92,6 +92,8 @@ are supported (with individual support for each function may vary):
 - PHP
 - Ruby
 - C#
+- Vimscript (only debugging features)
+- Powershell (only debugging features)
 
 ### Refactoring Features<a name="refactoring-features"></a>
 
