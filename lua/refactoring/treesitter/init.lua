@@ -13,6 +13,7 @@ local java = require("refactoring.treesitter.langs.java")
 local cs = require("refactoring.treesitter.langs.cs")
 local ruby = require("refactoring.treesitter.langs.ruby")
 local powershell = require("refactoring.treesitter.langs.powershell")
+local vimscript = require("refactoring.treesitter.langs.vimscript")
 
 local api = vim.api
 local ts = vim.treesitter
@@ -39,6 +40,7 @@ local M = {
     c = c,
 
     powershell = powershell,
+    vim = vimscript,
 }
 
 local DefaultSitter = {}
